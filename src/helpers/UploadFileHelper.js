@@ -3,6 +3,7 @@ const { v4: uuidv4 } = require("uuid");
 const fs = require("fs");
 
 const getFileBase64 = (filePath) => {
+  filePath = path.join(process.cwd(), `/public/${filePath}`);
   return new Promise((resolve, reject) => {
     if (!fs.existsSync(filePath)) {
       return resolve(null);
