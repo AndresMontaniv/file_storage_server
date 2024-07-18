@@ -83,6 +83,7 @@ const validateFileExtension = (file, extension) => {
 };
 
 const getMime = async (filePath) => {
+  filePath = path.join(process.cwd(), `/public/${filePath}`);
   const mime = await import("mime");
   return mime.default.getType(filePath);
 };
